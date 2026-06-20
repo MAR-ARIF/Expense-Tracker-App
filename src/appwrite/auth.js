@@ -13,7 +13,7 @@ export class AuthService{
         try{
             const user = await this.account.create(ID.unique() , email, password , name);
             if(user) {
-                return await this.login(email,password);
+                return await this.login({email,password});
 
             } else {
                 return user;
@@ -21,6 +21,7 @@ export class AuthService{
 
         } catch(error){
             console.log("Error in createUser in auth.js :" , error);
+            throw error;
         }
     }
     async login({email,password}){
