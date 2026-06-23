@@ -1,4 +1,4 @@
-import { Client , Databases , ID} from "appwrite";
+import { Client , Databases , ID, Query} from "appwrite";
 import conf from "../conf/conf";
 
 export class DatabaseService{
@@ -35,7 +35,8 @@ export class DatabaseService{
         try {
             return await this.database.listDocuments(
                 conf.appwriteDatabaseId,
-                conf.appwriteCollectionId
+                conf.appwriteCollectionId,
+                [Query.orderDesc("$createdAt")]
             )
             
         } catch (error) {
