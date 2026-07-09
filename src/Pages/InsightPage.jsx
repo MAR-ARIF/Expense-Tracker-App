@@ -80,7 +80,7 @@ function InsightPage(){
         }
     }
     return(
-        <div className="py-6">
+        <div className="py-8">
             <Container>
                 <h1 className="text-2xl font-semibold mb-6">AI Insights</h1>
                 <div className="border border-gray-200 bg-white rounded-xl p-12 text-center">
