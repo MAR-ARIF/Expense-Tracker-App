@@ -42,6 +42,8 @@ function SignUpForm(){
     }
     return(
         <form onSubmit={handleSubmit(submit)} className="w-80 bg-white md:w-95 mx-auto border-2 border-gray-200 shadow-sm rounded-2xl px-6 py-6" >
+            <h1 className="text-xl font-bold mt-2">Create account</h1>
+            <p className="text-gray-600 mb-5">Start tracking your expenses</p>
             <Input
             label="Full Name"
             placeholder="Enter your full name"
