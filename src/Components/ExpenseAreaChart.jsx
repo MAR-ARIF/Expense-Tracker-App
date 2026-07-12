@@ -1,4 +1,4 @@
-import { ChevronRight } from "lucide-react";
+import { AreaChartIcon, ChevronRight} from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import {
   Area,
@@ -7,12 +7,27 @@ import {
   Tooltip,
   XAxis,
   YAxis,
-  CartesianGrid
+  CartesianGrid,
 } from "recharts";
 
-function ExpenseAreaChart({ data }) {
+function ExpenseAreaChart({ data  , isNoTransaction=false}) {
   const navigate = useNavigate()
-  return (
+  return isNoTransaction ? (
+    <div className="bg-white p-4 border border-gray-200 rounded-xl">
+      <div className="h-72 flex flex-col items-center justify-center">
+        <AreaChartIcon className="w-16 h-16 text-gray-400 mb-4" />
+
+        <p className="font-semibold">
+            No spending data
+        </p>
+
+        <p className="text-gray-500 text-sm">
+            Your charts will appear here.
+        </p>
+      </div>
+
+    </div>
+  ) :(
     <div className="bg-white p-4 border border-gray-200 rounded-xl">
       <div className="flex justify-between">
         <h1 className="text-2xl m-4 font-semibold">
