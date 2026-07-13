@@ -13,7 +13,7 @@ import ExpenseAreaChart from "../Components/ExpenseAreaChart";
 function AnalyticsPage(){
     const dispatch = useDispatch();
     const transactions = useSelector((state) => state.transaction.transactions);
-
+    const isNoTransaction = transactions.length === 0;
     useEffect(() => {
         databaseService.getAllExpenses().then((result) => {
             if(result) dispatch(setTransaction(result.documents));
@@ -77,9 +77,9 @@ function AnalyticsPage(){
                     <AvgMonthlyCard />
                     <LargeExpCard />
                 </div>
-                <div>
-                    <ExpensePieChart data={chartData} />
-                    <ExpenseStackedBar data={stackedBarData} />
+                <div className="flex gap-1 flex-col">
+                    <ExpensePieChart data={chartData} isNoTransaction={isNoTransaction} />
+                    <ExpenseStackedBar data={stackedBarData} isNoTransaction={isNoTransaction} />
                     
                 </div>
 
