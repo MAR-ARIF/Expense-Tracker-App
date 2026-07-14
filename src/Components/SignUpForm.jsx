@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form"
 import authService from "../appwrite/auth"
 import { useDispatch } from "react-redux"
-import { login } from "../slices/authSlice";
+import { login, setName } from "../slices/authSlice";
 import { useNavigate } from "react-router-dom";
 import Input from "./Input";
 import Button from "./Button";
@@ -28,6 +28,7 @@ function SignUpForm(){
                 const userSession = await authService.getUser();
                 if(userSession){
                     dispatch(login(userSession));
+                    dispatch(setName(userSession.name));
                     navigate("/");
 
                 }

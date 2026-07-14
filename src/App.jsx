@@ -32,8 +32,12 @@ function App() {
     <div className="bg-slate-100 min-h-screen">
       
       {!isSignUpOrLogInPage && <Header /> }
-      <Outlet />
+      <main className="pt-7 pb-15 md:pb-0">
+        <Outlet />
 
+      </main>
+     
+   
     </div>
   ) : null
 }
